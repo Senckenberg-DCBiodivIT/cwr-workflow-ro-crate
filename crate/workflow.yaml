@@ -1,21 +1,4 @@
 kind: Workflow
-metadata:
-  annotations:
-    argo-connector/keywords: Lycopodium,ModGP,SDM,test,CWR
-    argo-connector/license: https://spdx.org/licenses/CC-BY-SA-4.0
-    argo-connector/notify: 'true'
-    argo-connector/submitterId1: 0000-0001-9447-460X
-    argo-connector/submitterName1: Daniel Bauer
-    workflows.argoproj.io/description: Crop Wild Relatives distribution modeling workflow
-      using ModGP for Lycopodium. Lycopodium is not not actually a crop species, but
-      serves as a good test genus due to the limited amount of species in this genus
-      (and thus the short workflow execution runtime). Lycopodium is a genus of clubmosses
-      within the family Lycopodiaceae. These perennial, evergreen plants are characterized
-      by their small, needle-like or scale-like leaves arranged in spirals or whorls
-      along the stems. Lycopodium species reproduce via spores rather than seeds and
-      often form dense mats in forests, particularly in moist, shaded environments.
-    workflows.argoproj.io/pod-name-format: v2
-    workflows.argoproj.io/title: Species distribution models for Lycopodium
 spec:
   arguments:
     parameters:
@@ -34,7 +17,6 @@ spec:
   artifactGC:
     forceFinalizerRemoval: true
   entrypoint: workflow
-  onExit: exit-handler
   podGC:
     strategy: OnWorkflowSuccess
   templates:
@@ -159,34 +141,4 @@ spec:
           none: {}
         name: exports
         path: /src/Exports/ModGP
-  - inputs: {}
-    metadata: {}
-    name: exit-handler
-    outputs: {}
-    steps:
-    - - arguments: {}
-        inline:
-          http:
-            headers:
-            - name: Authorization
-              valueFrom:
-                secretKeyRef:
-                  key: token
-                  name: argo-connector-auth-secret
-            insecureSkipVerify: true
-            successCondition: response.statusCode == 202
-            timeoutSeconds: 10
-            url: https://217.71.193.143/connector/notify/{{ workflow.namespace }}/{{workflow.name
-              }}
-          inputs: {}
-          metadata: {}
-          outputs: {}
-          retryStrategy:
-            backoff:
-              duration: 1m
-              factor: '2'
-              maxDuration: 30m
-            limit: '10'
-        name: notify-argo-connector
-        when: '{{ workflow.status }} == Succeeded && {{ workflow.annotations.argo-connector/notify
-          }} == true'
+
