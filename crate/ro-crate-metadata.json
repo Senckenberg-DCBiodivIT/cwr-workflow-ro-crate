@@ -1,7 +1,6 @@
 {
   "@context": [
-    "https://w3id.org/ro/crate/1.1/context",
-    "https://w3id.org/ro/terms/workflow-run/context"
+    "https://w3id.org/ro/crate/1.1/context"
   ],
   "@graph": [
     {
@@ -27,12 +26,6 @@
         "@id": "https://orcid.org/0000-0001-9447-460X"
       },
       "conformsTo": [
-        {
-          "@id": "https://w3id.org/ro/wfrun/process/0.1"
-        },
-        {
-          "@id": "https://w3id.org/ro/wfrun/workflow/0.1"
-        },
         {
           "@id": "https://w3id.org/workflowhub/workflow-ro-crate/1.0"
         }
@@ -126,39 +119,6 @@
       "description": "Revision of CWR source",
       "name": "modgpRevision",
       "workExample": {"@id": "#revision"}
-    },
-    {
-      "@id": "#number_of_cores",
-      "@type": "PropertyValue",
-      "description": "Number of cores for SDM calculation",
-      "name": "numberOfCores",
-      "value": "9",
-      "exampleOfWork": {"@id": "#input_number_of_cores"}
-    },
-    {
-      "@id": "#source",
-      "@type": "PropertyValue",
-      "description": "URL of CWR source repository",
-      "name": "modgpSource",
-      "value": "https://github.com/BioDT/uc-CWR.git",
-      "exampleOfWork": {"@id": "#input_source"}
-    },
-    {
-      "@id": "#species",
-      "@type": "PropertyValue",
-      "additionalType": "TaxonName",
-      "description": "Genus of species for distribution modeling",
-      "name": "species",
-      "value": "Lycopodium",
-      "exampleOfWork": {"@id": "#input_species"}
-    },
-    {
-      "@id": "#revision",
-      "@type": "PropertyValue",
-      "description": "Revision of CWR source",
-      "name": "modgpRevision",
-      "value": "main",
-      "exampleOfWork": {"@id": "#input_revision"}
     },
     {
         "@id": "https://argoproj.github.io/workflows",
