@@ -78,7 +78,7 @@
           "@id": "#input_cwr_source_repository"
         },
         {
-          "@id": "#input_cw_source_revision"
+          "@id": "#input_cwr_source_revision"
         }
       ],
       "programmingLanguage": {
