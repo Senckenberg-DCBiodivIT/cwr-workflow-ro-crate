@@ -32,6 +32,8 @@ spec:
       artifacts:
       - name: outputfile
         path: /tmp/output.txt  
+        archive:
+          none: {}
     script:
       image: python:3.9
       command: [python]
