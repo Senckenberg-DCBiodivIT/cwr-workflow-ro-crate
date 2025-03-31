@@ -13,7 +13,8 @@ spec:
       value: https://github.com/BioDT/uc-CWR.git
     - description: Revision of CWR source
       name: modgpRevision
-      value: main
+      value: 17492b4
+
   artifactGC:
     forceFinalizerRemoval: true
   entrypoint: workflow
@@ -103,7 +104,7 @@ spec:
       env:
       - name: CWR_ON_DESTINE
         value: '1'
-      image: ghcr.io/biodt/cwr:0.3.0
+      image: ghcr.io/biodt/cwr:0.5.0
       name: cwr-container
       resources: {}
       workingDir: /src
@@ -126,7 +127,7 @@ spec:
       - name: source
         value: https://github.com/BioDT/uc-CWR.git
       - name: codeRevision
-        value: main
+        value: 17492b4
     metadata: {}
     name: modgp
     outputs:
